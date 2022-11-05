@@ -1,15 +1,16 @@
 import os, io
 from google.cloud import vision
 
-#sets local enviroment variables 
-#sets authentication for google web services
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "auth.json"
-
-#creates vision object which is responsible for image processing 
-client = vision.ImageAnnotatorClient()
 #INPUT file path of image
 #OUTPUT tags associated with image 
 def getTags(file_path): 
+    #sets local enviroment variables 
+    #sets authentication for google web services
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "auth.json"
+
+    #creates vision object which is responsible for image processing 
+    client = vision.ImageAnnotatorClient()
+
     with io.open(file_path, "rb") as file:
         content = file.read()
 
@@ -26,18 +27,18 @@ def getTags(file_path):
     return labelList
 
 
-#Temporary selection of catergories 
-catergories = {"Fire": [], "People": [], "Midnight": [], "Plant": []}
-
 #INPUT file path folder of images
-#OUTPUT populated catergories dictionary --> key:value --> category:array of file paths of images
+#OUTPUT populated categories dictionary --> key:value --> category:array of file paths of images
 def sort(file_folder_path):
+    #Temporary selection of categories 
+    categories = {"Fire": [], "People": [], "Midnight": [], "Plant": []}
+
     for simple_file_path in os.listdir(file_folder_path):
         file_path = os.path.join("images", simple_file_path)
         tags = getTags(file_path)
         
-        for catergory in catergories: 
-            if tags.get(catergory, 0) != 0: #if category matches with one of the tags on the image
-                catergories[catergory].append(simple_file_path) 
+        for category in categories: 
+            if tags.get(category, 0) != 0: #if category matches with one of the tags on the image
+                categories[category].append(simple_file_path) 
     
-    return catergories 
+    return categories 
