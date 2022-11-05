@@ -3,9 +3,8 @@ from functions import getTags, sort
 
 api = Flask(__name__)
 
-@api.route('/profile')
-def my_profile():
-
+@api.route('/sort')
+def sort_images():
 
     response_body = sort("./images")
 
