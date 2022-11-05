@@ -31,12 +31,12 @@ def getTags(file_path):
 #OUTPUT populated categories dictionary --> key:value --> category:array of file paths of images
 def sort(file_folder_path):
     #Temporary selection of categories 
-    categories = {"Fire": [], "People": [], "Midnight": [], "Plant": []}
+    categories = {"Fire": [], "People": [], "Midnight": [], "Plant": [], "Food": []}
 
     for simple_file_path in os.listdir(file_folder_path):
         file_path = os.path.join("images", simple_file_path)
         tags = getTags(file_path)
-        
+
         for category in categories: 
             if tags.get(category, 0) != 0: #if category matches with one of the tags on the image
                 categories[category].append(simple_file_path) 

@@ -2,3 +2,4 @@ auth.json
 backend/env
 backend/__pycache__
 backend/.DS_Store
+backend/test.py
