@@ -26,19 +26,25 @@ def getTags(file_path):
         labelList[label.description] = 1
     return labelList
 
-
 #INPUT file path folder of images
 #OUTPUT populated categories dictionary --> key:value --> category:array of file paths of images
 def sort(file_folder_path):
     #Temporary selection of categories 
-    categories = {"Fire": [], "People": [], "Midnight": [], "Plant": [], "Food": []}
+    categories = {"People":[], "Fire":[], "Plant":[], "Food":[], "Camping":[], "Wood":[], "Forest":[], "Night":[], "Sunset":[]}
 
     for simple_file_path in os.listdir(file_folder_path):
         file_path = os.path.join("images", simple_file_path)
         tags = getTags(file_path)
 
-        for category in categories: 
-            if tags.get(category, 0) != 0: #if category matches with one of the tags on the image
+        for category in categories:
+            if tags.get("People", 0) != 0:
+                categories["People"].append(simple_file_path) 
+                break 
+            elif tags.get(category, 0) != 0: #if category matches with one of the tags on the image
                 categories[category].append(simple_file_path) 
-    
+                break
+            elif tags == "Midnight":
+                categories["Night"].append(simple_file_path)
+                break
+
     return categories 
