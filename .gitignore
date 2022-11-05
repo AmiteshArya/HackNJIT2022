@@ -1,1 +1,3 @@
 auth.json
+backend/env
+backend/__pycache__
