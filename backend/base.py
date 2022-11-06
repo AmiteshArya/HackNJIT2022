@@ -8,11 +8,11 @@ api = Flask(__name__)
 @api.route('/sort')
 def sort_images():
 
-    response_body = sort("./images")
+    response_body = sort("../webpage/src/assets")
 
     return response_body
 
-
+""" 
 @api.route("/upload", ["GET", "POST"])
 def upload_images():
     #INPUT folder of images 
@@ -24,5 +24,5 @@ def upload_images():
     for file in file_folder:
         if file.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS:
             file.save(os.path.join(api.config['UPLOAD_FOLDER'], filename))
-
+ """
 

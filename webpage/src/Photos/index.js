@@ -1,3 +1,143 @@
+
+import axios from "axios";
+
+var campingPhotos = [];
+var firePhotos = [];
+var foodPhotos = [];
+var forestPhotos = [];
+var nightPhotos = [];
+var peoplePhotos = [];
+var plantPhotos = [];
+var sunsetPhotos = [];
+var woodPhotos = [];
+
+var sortedPhotosMap;
+axios({
+    method: "GET",
+    url:"/sort",
+})
+.then((response) => {
+    sortedPhotosMap = response.data
+}).catch((error) => {
+    if (error.response) {
+        console.log(error.response)
+        console.log(error.response.status)
+        console.log(error.response.headers)
+    }
+})
+
+
+console.log(sortedPhotosMap);
+
+for (const [key, value] of Object.entries(sortedPhotosMap)) {
+    switch (key) {
+        case "Camping":
+            for (let filename of value) {
+                //console.log("../assets/" + filename);
+                campingPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+
+        case "Fire":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                firePhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+
+        case "Food":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                foodPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+
+        case "Forest":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                forestPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+        
+        case "Night":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                nightPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+
+        case "People":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                peoplePhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+
+        case "Plant":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                plantPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+
+        case "Sunset":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                sunsetPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+            
+        case "Wood":
+            for (let filename of value) {
+                console.log("../assets/" + filename);
+                woodPhotos.push({
+                    src: require("../assets/" + filename),
+                    width: 4,
+                    height: 3
+                });
+            }
+            break;
+        
+        default:
+            break;
+    }
+}
+
+export { campingPhotos, firePhotos, foodPhotos, forestPhotos, nightPhotos, peoplePhotos, plantPhotos, sunsetPhotos, woodPhotos };
+
+/*
 export const photos = [
     {
       src: require("../assets/food1.jpg"),
