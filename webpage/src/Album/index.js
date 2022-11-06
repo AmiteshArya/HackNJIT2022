@@ -24,8 +24,21 @@ function Album() {
 
     return (
         <div className='album'>
-            <h2>Sortable Gallery</h2>
-            <h3>Drag photo to rearrange</h3>
+            <div>
+                <h2>Forestry</h2>
+            </div>
+            <SortableGallery items={items} onSortEnd={onSortEnd} axis={"xy"} />
+            <div>
+                <h2>Bonfire</h2>
+            </div>
+            <SortableGallery items={items} onSortEnd={onSortEnd} axis={"xy"} />
+            <div>
+                <h2>Landscape</h2>
+            </div>
+            <SortableGallery items={items} onSortEnd={onSortEnd} axis={"xy"} />
+            <div>
+                <h2>People</h2>
+            </div>
             <SortableGallery items={items} onSortEnd={onSortEnd} axis={"xy"} />
         </div>
     );
