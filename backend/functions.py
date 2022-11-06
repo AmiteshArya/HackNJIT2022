@@ -35,7 +35,7 @@ def sort(file_folder_path):
     for simple_file_path in os.listdir(file_folder_path):
         file_path = os.path.join("images", simple_file_path)
         tags = getTags(file_path)
-
+        print(tags)
         for category in categories:
             if tags.get("People", 0) != 0:
                 categories["People"].append(simple_file_path) 

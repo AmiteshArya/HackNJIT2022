@@ -8,7 +8,8 @@ api = Flask(__name__)
 @api.route('/sort', method=["GET"])
 def sort_images():
 
-    response_body = sort("../webpage/src/assets")
+    #response_body = sort("../webpage/src/assets")
+    response_body = sort("./images")
 
     return response_body
 
