@@ -1,7 +1,20 @@
 @import "../global.scss";
 
-.album{
+.album {
     height: 92%;
+    width: 100%;
     position: absolute;
     bottom: 0;
+    z-index: 0;
+}
+
+SortableGallery {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+}
+
+h3 {
+    color:blue;
+    text-align: center;
 }

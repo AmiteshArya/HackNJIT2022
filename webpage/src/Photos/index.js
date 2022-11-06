@@ -45,4 +45,5 @@ export const photos = [
       height: 3
     }
   ];
+*/
   
