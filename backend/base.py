@@ -5,7 +5,7 @@ from functions import getTags, sort
 
 api = Flask(__name__)
 
-@api.route('/sort')
+@api.route('/sort', method=["GET"])
 def sort_images():
 
     response_body = sort("../webpage/src/assets")
@@ -13,7 +13,7 @@ def sort_images():
     return response_body
 
 """ 
-@api.route("/upload", ["GET", "POST"])
+@api.route("/upload", method=["GET", "POST"])
 def upload_images():
     #INPUT folder of images 
     #OUTPUT saves the images into images folder 
